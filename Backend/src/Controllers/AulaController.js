@@ -6,10 +6,20 @@ class AulaController {
         response.send(rows)
     }
 
-    async create(request, response) {
-        const { data, disciplina, id_professor, id_sala } = request.body
+    async show(request, response) {
+        const { id } = request.params;
+        
+        console.log("entrei")
 
-        const row = await AulaRepository.create(data, disciplina, id_professor, id_sala)
+        const aula = await AulaRepository.findById(id);
+
+        response.json(aula)
+    }
+
+    async create(request, response) {
+        const { date, disciplina, descricao, sala, id } = request.body
+
+        const row = await AulaRepository.create(date, disciplina, descricao, sala, id)
 
         response.send(row)
     }

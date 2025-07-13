@@ -70,6 +70,7 @@ router.delete("/escola/:id", EscolaController.delete)
 
 // Get Aula
 router.get("/Aula", AulaController.index)
+router.get("/Aula/:id", AulaController.show)
 
 // Post Aula
 router.post("/Aula/create", AulaController.create)
@@ -101,7 +102,7 @@ router.get("/Falta", FaltaController.index)
 router.get("/Falta/:id", FaltaController.showByAluno)
 
 // Post Falta
-router.post("/Falta/create", FaltaController.create)
+router.post("/Falta/create/:id", FaltaController.create)
 
 // Delete Falta
 router.delete("/Falta/:id", FaltaController.delete)

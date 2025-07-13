@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS tb_professor_escola(
 CREATE TABLE IF NOT EXISTS tb_aula(
     id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
     data DATE,
+    descricao VARCHAR,
     disciplina VARCHAR,
     id_professor UUID,
     id_sala UUID,

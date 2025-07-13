@@ -6,12 +6,20 @@ class AulaRepository {
         return await db.query(`SELECT * FROM tb_aula`)
     }
 
-    async create(data, disciplina, id_professor, id_sala) {
+    async findById(id) {
+        return await db.query(`
+            SELECT * FROM tb_aula
+            WHERE tb_aula.id = $1
+            `, [id]
+        )
+    }
+
+    async create(data, disciplina, descricao, id_sala, id_professor) {
         const [ row ] = await db.query(`
-            INSERT INTO tb_aula(data, disciplina, id_professor, id_sala)
-            VALUES($1, $2, $3, $4)
+            INSERT INTO tb_aula(data, disciplina, descricao, id_sala, id_professor)
+            VALUES($1, $2, $3, $4, $5)
             RETURNING *
-            `, [data, disciplina, id_professor, id_sala]
+            `, [data, disciplina, descricao, id_sala, id_professor]
         );
         return row
     }
