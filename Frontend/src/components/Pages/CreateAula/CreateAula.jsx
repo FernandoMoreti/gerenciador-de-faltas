@@ -29,8 +29,6 @@ export default function CreateAula() {
         
         const newAula = { date, disciplina, descricao, sala, id };
 
-        console.log(newAula)
-
         try {
             const response = await fetch("http://localhost:8000/aula/create", {
                 method: "POST",

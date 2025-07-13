@@ -21,7 +21,6 @@ export default function CreateAluno() {
         event.preventDefault(); // evita o reload da página
 
         const newAluno = { name, codigoAluno, salaAluno };
-        console.log(newAluno)
 
         try {
             const response = await fetch("http://localhost:8000/Aluno/create", {

@@ -12,8 +12,6 @@ export default function AlunoPage() {
 
     if (!aluno) return <p>Carregando aluno...</p>;
 
-    console.log(faltas)
-
     return (
         <Container>
         <Header>
