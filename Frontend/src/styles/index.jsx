@@ -9,5 +9,10 @@ export default createGlobalStyle`
     font-family: "Roboto", sans-serif;
     scrollbar-width: none;
     scroll-behavior: smooth;
+    
+    button {
+      cursor: pointer;
+    }
+    
   }  
 `;

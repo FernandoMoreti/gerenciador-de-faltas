@@ -1,16 +1,5 @@
-import { useState, useEffect } from "react";
-
-export default function ApiAlunos() {
-    
-    const [alunos, setAlunos] = useState([])
-    
-    useEffect(() => {
-        fetch('http://localhost:8000/Aluno')
-        .then(response => response.json())
-        .then(response => setAlunos(response))
-        .catch(err => console.error(err));
-    }, [])
-
-    return alunos
+export default async function ApiAlunos() {
+    const response = await fetch(`http://localhost:8000/aluno`);
+    const data = await response.json();
+    return data;
 }
-

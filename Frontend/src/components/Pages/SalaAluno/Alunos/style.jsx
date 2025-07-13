@@ -8,14 +8,24 @@ export const Container = styled.div`
 
     div{
         display: flex;
+        align-items: center;
+        justify-content: space-between;
         font-size: 18px;
-        gap: 450px;
-        padding: 0px 20px;
+        margin: 0px 20px;
+
+        a {
+            text-decoration: none;
+            color: #111;
+            padding: 10px 10px;
+            border-radius: 10px;
+            background-color: aqua;
+            transition: 0.5s;
+        }
     }
 
     article {
         overflow-y: auto;
-        max-height: 73vh;
+        max-height: 70vh;
         scrollbar-width: none;
     }
 

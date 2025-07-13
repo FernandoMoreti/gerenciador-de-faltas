@@ -13,7 +13,7 @@ export default function Aluno(props) {
     return (
         <Container onClick={showAluno}>
             <p>{props.codigo}</p>
-            <p>{props.nome}</p>
+            <p id="second-p">{props.nome}</p>
         </Container>
     )
 }

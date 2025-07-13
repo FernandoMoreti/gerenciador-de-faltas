@@ -21,8 +21,6 @@ export default function Login() {
 
         if(auth.authenticated) {
             localStorage.setItem("usuario", JSON.stringify(auth.prof))
-
-            alert("logado com sucesso")
             navigate("/home")
         } else {
             alert(auth.error)
