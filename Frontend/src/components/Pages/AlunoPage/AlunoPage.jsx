@@ -10,6 +10,8 @@ export default function AlunoPage() {
     const [ aluno ] = ApiAluno(id);
     const faltas = ApiFalta(id)
 
+    console.log(faltas)
+
     if (!aluno) return <p>Carregando aluno...</p>;
 
     return (
@@ -24,7 +26,7 @@ export default function AlunoPage() {
 
         <FaltasSection>
             <h3>Faltas</h3>
-            {faltas.length > 0 ? (
+            {faltas?.length > 0 ? (
             <ul>
                 {faltas.map((falta, index) => (
                 <li key={falta.id}>

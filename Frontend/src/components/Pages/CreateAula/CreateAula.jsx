@@ -23,7 +23,7 @@ export default function CreateAula() {
     const [ sala, setSalaAluno ] = useState("")
 
     async function newAula (event) {
-        event.preventDefault(); // evita o reload da página
+        event.preventDefault();
         
         const { id } = JSON.parse(localStorage.getItem("usuario"));
         

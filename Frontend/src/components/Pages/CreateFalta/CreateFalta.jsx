@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import ApiAlunos from "../../../api/ApiAlunos.jsx";
 import ApiAulaById from "../../../api/ApiAula.jsx";
+import ApiEscolaByClass from "../../../api/ApiEscolaByClass.jsx";
 
 import { Container, ListCardsAlunos, CheckboxContainer, HiddenCheckbox, StyledCheckbox } from "./style.jsx"
 import Aluno from "../SalaAluno/Alunos/ListAlunos/Aluno.jsx";
@@ -10,18 +11,24 @@ import Button from "../../component/Button.jsx"
 
 export default function CreateFalta() {
 
-    const { id } = useParams(); // id da aula
+    const navigate = useNavigate()
+
+    const { id } = useParams();
     const [ aula, setAula ] = useState(null);
+    const [ escola, setEscola ] = useState();
     const [ alunos, setAlunos ] = useState([]);
     const [ sala, setSala ] = useState();
-    const [faltas, setFaltas] = useState([]);
+    const [ faltas, setFaltas ] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const aula = await ApiAulaById(id); // passa id da aula
+                const aula = await ApiAulaById(id);
                 setAula(aula);
                 setSala(aula[0].id_sala)
+                
+                const escola = await ApiEscolaByClass(aula[0].id_sala);
+                setEscola(escola.id_escola);
 
                 const alunos = await ApiAlunos();
                 setAlunos(alunos);
@@ -34,28 +41,56 @@ export default function CreateFalta() {
     }, [id]);
 
     if (!aula || alunos.length === 0) {
-        return <p>Carregando...</p>; // ou um spinner bonito
+        return <p>Carregando...</p>;
     }
 
     function handleCheckboxChange(event) {
-        const idAluno = event.target.value;
+        const id_aluno = event.target.value;
 
         setFaltas((prevFaltas) => {
             const atualizadas = event.target.checked
-            ? [...prevFaltas, idAluno]
-            : prevFaltas.filter((id) => id !== idAluno);
+            ? [...prevFaltas, id_aluno]
+            : prevFaltas.filter((id) => id !== id_aluno);
 
-            console.log("faltas atualizadas:", atualizadas);
             return atualizadas;
         });
     }
 
+    async function sendFaltas () {
+
+        const id_aula = id;
+
+        for (let i = 0; i < faltas.length; i++) {
+
+            let id_aluno = faltas[i]
+            
+            const newFalta = { id_aluno, id_aula };
+
+            try {
+                const response = await fetch("http://localhost:8000/falta/create", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newFalta)
+                });
+    
+                if (!response.ok) {
+                    throw new Error("Erro ao criar a Falta");
+                }
+                navigate(`/salas/${escola}`)
+            } catch (error) {
+                console.error("Erro:", error.message);
+            }
+        }  
+    }
 
     return (
         <Container>
             <h3>Selecione os alunos que faltaram a essa aula</h3>
             <ListCardsAlunos>
-                {alunos.map((aluno) => {
+                {// eslint-disable-next-line
+                alunos.map((aluno) => {
                     if (aluno.id_sala === sala) {
                         return (
                             <div>
@@ -70,10 +105,7 @@ export default function CreateFalta() {
                                     <HiddenCheckbox 
                                         value={aluno.id}
                                         checked={faltas.includes(aluno.id)}
-                                        onChange={(e) => {
-                                            console.log("entrei");
-                                            handleCheckboxChange(e);
-                                        }}    
+                                        onChange={handleCheckboxChange}    
                                     />
                                     <StyledCheckbox />
                                 </CheckboxContainer>
@@ -82,7 +114,7 @@ export default function CreateFalta() {
                     }
                 })}
             </ListCardsAlunos>
-            <Button type="button">Atirbuir faltas</Button>
+            <Button onClick={sendFaltas}>Atribuir faltas</Button>
         </Container>
     )
 }

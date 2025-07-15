@@ -14,7 +14,6 @@ export default function Alunos({ sala }) {
         async function fetchData() {
             try {
                 const alunos = await ApiAlunos();
-                console.log(alunos)
                 setAlunos(alunos);
             } catch (err) {
                 console.error("Erro ao carregar alunos:", err);
