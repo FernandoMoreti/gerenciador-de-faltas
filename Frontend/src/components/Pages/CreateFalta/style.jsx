@@ -82,6 +82,7 @@ export const StyledCheckbox = styled.span`
     border: 2px solid #aaa;
     border-radius: 6px;
     transition: 0.2s;
+    cursor: pointer;
     position: relative;
 
     ${CheckboxContainer}:hover & {

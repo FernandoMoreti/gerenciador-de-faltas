@@ -13,7 +13,8 @@ export default function CreateFalta() {
     const { id } = useParams(); // id da aula
     const [ aula, setAula ] = useState(null);
     const [ alunos, setAlunos ] = useState([]);
-    const [ sala, setSala ] = useState()
+    const [ sala, setSala ] = useState();
+    const [faltas, setFaltas] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
@@ -36,6 +37,20 @@ export default function CreateFalta() {
         return <p>Carregando...</p>; // ou um spinner bonito
     }
 
+    function handleCheckboxChange(event) {
+        const idAluno = event.target.value;
+
+        setFaltas((prevFaltas) => {
+            const atualizadas = event.target.checked
+            ? [...prevFaltas, idAluno]
+            : prevFaltas.filter((id) => id !== idAluno);
+
+            console.log("faltas atualizadas:", atualizadas);
+            return atualizadas;
+        });
+    }
+
+
     return (
         <Container>
             <h3>Selecione os alunos que faltaram a essa aula</h3>
@@ -52,7 +67,14 @@ export default function CreateFalta() {
                                     exibirLink={false}
                                 />
                                 <CheckboxContainer>
-                                    <HiddenCheckbox value={aluno.id} />
+                                    <HiddenCheckbox 
+                                        value={aluno.id}
+                                        checked={faltas.includes(aluno.id)}
+                                        onChange={(e) => {
+                                            console.log("entrei");
+                                            handleCheckboxChange(e);
+                                        }}    
+                                    />
                                     <StyledCheckbox />
                                 </CheckboxContainer>
                             </div>
