@@ -4,7 +4,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 95%;
     margin: 16px;
     gap: 16px;
 
@@ -13,6 +12,11 @@ export const Container = styled.div`
         margin: 0px;
         font-size: 24px;
     }
+
+    button {
+        margin: 0;
+        width: 85%;
+    }
 `
 
 export const ListCardsAlunos = styled.div`
@@ -20,6 +24,7 @@ export const ListCardsAlunos = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     gap: 24px;
+    max-height: 460px;
     overflow-y: auto;
     scrollbar-width: none;
 
@@ -51,6 +56,7 @@ export const ListCardsAlunos = styled.div`
                 text-decoration: underline;
             }   
         }
+
     }
 `
 

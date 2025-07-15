@@ -6,6 +6,7 @@ import ApiAulaById from "../../../api/ApiAula.jsx";
 
 import { Container, ListCardsAlunos, CheckboxContainer, HiddenCheckbox, StyledCheckbox } from "./style.jsx"
 import Aluno from "../SalaAluno/Alunos/ListAlunos/Aluno.jsx";
+import Button from "../../component/Button.jsx"
 
 export default function CreateFalta() {
 
@@ -59,6 +60,7 @@ export default function CreateFalta() {
                     }
                 })}
             </ListCardsAlunos>
+            <Button type="button">Atirbuir faltas</Button>
         </Container>
     )
 }
