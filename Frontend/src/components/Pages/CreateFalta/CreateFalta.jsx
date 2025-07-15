@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import ApiAlunos from "../../../api/ApiAlunos.jsx";
 import ApiAulaById from "../../../api/ApiAula.jsx";
 
-import { Container, ListCardsAlunos } from "./style.jsx"
+import { Container, ListCardsAlunos, CheckboxContainer, HiddenCheckbox, StyledCheckbox } from "./style.jsx"
 import Aluno from "../SalaAluno/Alunos/ListAlunos/Aluno.jsx";
 
 export default function CreateFalta() {
@@ -42,12 +42,19 @@ export default function CreateFalta() {
                 {alunos.map((aluno) => {
                     if (aluno.id_sala === sala) {
                         return (
-                            <Aluno 
-                                key={aluno.codigoaluno}
-                                id={aluno.id}
-                                codigo={aluno.codigoaluno} 
-                                nome={aluno.name}
-                            />
+                            <div>
+                                <Aluno 
+                                    key={aluno.codigoaluno}
+                                    id={aluno.id}
+                                    codigo={aluno.codigoaluno} 
+                                    nome={aluno.name}
+                                    exibirLink={false}
+                                />
+                                <CheckboxContainer>
+                                    <HiddenCheckbox value={aluno.id} />
+                                    <StyledCheckbox />
+                                </CheckboxContainer>
+                            </div>
                         )
                     }
                 })}

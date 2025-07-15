@@ -8,7 +8,9 @@ export default function Aluno(props) {
         <Container>
             <p>{props.codigo}</p>
             <p id="second-p">{props.nome}</p>
-            <Link to={`/aluno/${props.id}`}>Details</Link>
+            {props.exibirLink && (
+                <Link to={`/aluno/${props.id}`}>Details</Link>
+            )}
         </Container>
     )
 }

@@ -45,6 +45,7 @@ export default function Alunos({ sala }) {
                                 id={aluno.id}
                                 codigo={aluno.codigoaluno} 
                                 nome={aluno.name}
+                                exibirLink={true}
                             />
                         )
                     }
