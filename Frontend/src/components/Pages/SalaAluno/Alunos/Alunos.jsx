@@ -40,7 +40,7 @@ export default function Alunos({ sala }) {
                 alunos.map((aluno) => {
                     if (aluno.id_sala === sala) {
                         return (
-                            <Aluno 
+                            <Aluno
                                 key={aluno.codigoaluno}
                                 id={aluno.id}
                                 codigo={aluno.codigoaluno} 
@@ -49,7 +49,7 @@ export default function Alunos({ sala }) {
                         )
                     }
                 })}
-                <Link to={`/aluno/create/${id}`}>Criar Aluno</Link>
+                <Link id="create-aluno" to={`/aluno/create/${id}`}>Criar Aluno</Link>
             </article>
         </Container>
     )

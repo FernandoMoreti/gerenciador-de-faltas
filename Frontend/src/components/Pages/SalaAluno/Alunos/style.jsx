@@ -6,12 +6,12 @@ export const Container = styled.div`
     border-radius: 10px;
     background-color: ${(props) => props.theme.salasBackgroundColor};
 
-    div{
+    div {
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-size: 18px;
-        margin: 0px 20px;
+        margin: 0px 30px;
 
         a {
             text-decoration: none;
@@ -24,17 +24,38 @@ export const Container = styled.div`
     }
 
     article {
+        display: flex;
+        flex-direction: column;
         overflow-y: auto;
         max-height: 70vh;
         scrollbar-width: none;
+        gap: 24px;
+        margin: 24px 0;
+
+        div {
+            margin: 0 16px;
+        }
+        
+        a {
+            background: transparent;
+            color: ${(props) => props.theme.color};
+            padding: 0;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            background: none;
+            opacity: 0.6;
+        }
     }
 
-    a {
+    #create-aluno {
         display: flex;
         justify-content: center;
         text-decoration: none;
         color: #111;
-        margin: 10px 10px;
+        margin: 0 16px;
+        margin-bottom: 24px;
         padding: 15px 10px;
         border-radius: 10px;
         background-color: aqua;

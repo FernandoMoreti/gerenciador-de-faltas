@@ -1,19 +1,14 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container } from "./style.jsx"
 
 export default function Aluno(props) {
 
-    const navigate = useNavigate()
-
-    function showAluno() {
-        navigate(`/aluno/${props.id}`)
-    }
-
     return (
-        <Container onClick={showAluno}>
+        <Container>
             <p>{props.codigo}</p>
             <p id="second-p">{props.nome}</p>
+            <Link to={`/aluno/${props.id}`}>Details</Link>
         </Container>
     )
 }
