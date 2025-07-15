@@ -6,6 +6,14 @@ class EscolaRepository {
         return await db.query(`SELECT * FROM tb_escola`)
     }
 
+    async showBySala(id) {
+        return await db.query(`
+            SELECT * FROM tb_sala
+            WHERE tb_sala.id = $1
+            `, [id]
+        )
+    }
+
     async create(name, img) {
         const [row] = await db.query(`
             INSERT INTO tb_escola(name, img)

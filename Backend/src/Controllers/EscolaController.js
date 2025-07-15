@@ -7,6 +7,14 @@ class EscolaController {
         response.send(escolas)
     }
 
+    async showEscolaBySala(request, response) {
+        const { id } = request.params;
+
+        const [ escola ] = await EscolaRepository.showBySala(id);
+
+        response.send(escola)
+    }
+
     async create(request, response) {
         const { name, img } = request.body;
 

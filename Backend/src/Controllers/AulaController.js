@@ -8,8 +8,6 @@ class AulaController {
 
     async show(request, response) {
         const { id } = request.params;
-        
-        console.log("entrei")
 
         const aula = await AulaRepository.findById(id);
 
