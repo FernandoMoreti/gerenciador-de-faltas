@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container, FaltasSection, Info, Foto, Header } from "./style.jsx";
+
+import ApiAulaById from "../../../api/ApiAula.jsx";
 import ApiAluno from "../../../api/ApiAluno.jsx";
 import ApiFalta from "../../../api/ApiFaltas.jsx";
 
 export default function AlunoPage() {
 
     const { id } = useParams();
-    const [ aluno ] = ApiAluno(id);
-    const faltas = ApiFalta(id)
 
-    console.log(faltas)
+    const [ aulasFaltadas, setAulasFaltadas ] = useState([])
+    const [ aluno, setAluno ] = useState(null);
+    const [ faltas, setFaltas ] = useState([]);
 
+    useEffect(() => {
+        async function fetchData() {
+            try {
+
+                const [ aluno ] = await ApiAluno(id);
+                const faltas = await ApiFalta(id);
+
+                setAluno(aluno);
+                setFaltas(faltas);
+
+                for (let i = 0; i < faltas.length; i++) {
+                    let [aula] = await ApiAulaById(faltas[i].id_aula)
+                    setAulasFaltadas((prevAulas) => [...prevAulas, aula])
+                }
+                console.log(aulasFaltadas)
+            } catch (err) {
+                console.error("Erro ao carregar faltas:", err);
+            }
+        }
+
+        fetchData();
+    }, [id])
+    
     if (!aluno) return <p>Carregando aluno...</p>;
 
     return (
@@ -25,14 +50,19 @@ export default function AlunoPage() {
         </Header>
 
         <FaltasSection>
-            <h3>Faltas</h3>
+            <h3>Faltas:</h3>
             {faltas?.length > 0 ? (
             <ul>
-                {faltas.map((falta, index) => (
-                <li key={falta.id}>
-                    <strong>Falta {index}</strong> — motivo
-                </li>
-                ))}
+                {!aulasFaltadas
+                    ? <p>Carregando...</p>
+                    :aulasFaltadas.map((aula, index) => (
+                    <li key={aula.id}>
+                        <strong>Falta: {index + 1} Data: {aula.data}</strong>
+                        <strong>Disciplina: {aula.disciplina}</strong>
+                        <strong>Descrição da aula: {aula.descricao}</strong>
+                    </li>
+                ))
+                }
             </ul>
             ) : (
             <p>Nenhuma falta registrada.</p>

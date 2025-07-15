@@ -49,6 +49,8 @@ export const FaltasSection = styled.div`
   }
 
   li {
+    display: flex;
+    flex-direction: column;
     padding: 6px 0;
     border-bottom: 1px solid #ccc;
     font-size: 15px;
