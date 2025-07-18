@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "./style.jsx";
-import Input from "../../component/Input"
+import Input from "../../components/component/Input"
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {

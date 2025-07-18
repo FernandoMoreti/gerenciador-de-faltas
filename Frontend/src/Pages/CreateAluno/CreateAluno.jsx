@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Input from "../../component/Input.jsx";
-import Select from "../../component/Select.jsx";
+import Input from "../../components/component/Input.jsx";
+import Select from "../../components/component/Select.jsx";
 import { Container } from "./style.jsx";
-import logo from "../../../logo.svg"
-import ApiSalas from "../../../api/ApiSalas.jsx"
+import logo from "../../logo.svg"
+import ApiSalas from "../../api/ApiSalas.jsx"
 
 export default function CreateAluno() {
 

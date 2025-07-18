@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container, FaltasSection, Info, Foto, Header } from "./style.jsx";
 
-import ApiAulaById from "../../../api/ApiAula.jsx";
-import ApiAluno from "../../../api/ApiAluno.jsx";
-import ApiFalta from "../../../api/ApiFaltas.jsx";
+import ApiAulaById from "../../api/ApiAula.jsx";
+import ApiAluno from "../../api/ApiAluno.jsx";
+import ApiFalta from "../../api/ApiFaltas.jsx";
 
 export default function AlunoPage() {
 

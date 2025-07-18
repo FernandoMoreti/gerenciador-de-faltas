@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom"
 import { Container } from "./styles.jsx"
 import Sala from "./ListSala/Sala.jsx";
-import apiSalas from "../../../../api/ApiSalas.jsx"
+import apiSalas from "../../../api/ApiSalas.jsx"
 
 export default function ListSalas({ handleToggleClass }) {
 

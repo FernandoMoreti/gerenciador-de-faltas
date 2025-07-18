@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import ApiAlunos from "../../../api/ApiAlunos";
-import ApiSalas from "../../../api/ApiSalas";
+import ApiSalas from "../../api/ApiSalas";
 
 import { Container, Form, FormGroup } from "./styles";
-import Input from "../../component/Input";
-import Select from "../../component/Select";
-import Button from "../../component/Button";
+import Input from "../../components/component/Input";
+import Select from "../../components/component/Select";
+import Button from "../../components/component/Button";
 
 
 export default function CreateAula() {

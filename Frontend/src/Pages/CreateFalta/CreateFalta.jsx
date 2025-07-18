@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import ApiAlunos from "../../../api/ApiAlunos.jsx";
-import ApiAulaById from "../../../api/ApiAula.jsx";
-import ApiEscolaByClass from "../../../api/ApiEscolaByClass.jsx";
+import ApiAlunos from "../../api/ApiAlunos.jsx";
+import ApiAulaById from "../../api/ApiAula.jsx";
+import ApiEscolaByClass from "../../api/ApiEscolaByClass.jsx";
 
 import { Container, ListCardsAlunos, CheckboxContainer, HiddenCheckbox, StyledCheckbox } from "./style.jsx"
 import Aluno from "../SalaAluno/Alunos/ListAlunos/Aluno.jsx";
-import Button from "../../component/Button.jsx"
+import Button from "../../components/component/Button.jsx"
 
 export default function CreateFalta() {
 

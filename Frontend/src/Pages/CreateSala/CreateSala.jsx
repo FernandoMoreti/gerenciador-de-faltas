@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Input from "../../component/Input.jsx";
+import Input from "../../components/component/Input.jsx";
 import { Container } from "./style.jsx";
-import logo from "../../../logo.svg"
+import logo from "../../logo.svg"
 
 export default function CreateSala() {
     

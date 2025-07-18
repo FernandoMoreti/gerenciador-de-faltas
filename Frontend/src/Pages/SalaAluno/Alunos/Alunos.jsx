@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom"
 import Aluno from "./ListAlunos/Aluno.jsx";
 import { Container } from "./style.jsx";
-import ApiAlunos from "../../../../api/ApiAlunos.jsx"
+import ApiAlunos from "../../../api/ApiAlunos.jsx"
 
 export default function Alunos({ sala }) {
 

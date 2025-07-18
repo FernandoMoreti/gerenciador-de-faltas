@@ -3,15 +3,15 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
 import { Container } from "./ContainerRoutes.jsx"
 
-import SalaAluno from "./components/Pages/SalaAluno/SalaAluno.jsx";
-import Home from "./components/Pages/Home/Home.jsx";
-import CreateAluno from "./components/Pages/CreateAluno/CreateAluno.jsx";
-import CreateSala from "./components/Pages/CreateSala/CreateSala.jsx";
-import NotFound from "./components/Pages/NotFound/NotFound.jsx";
-import Login from "./components/Pages/Login/Login.jsx";
-import AlunoPage from "./components/Pages/AlunoPage/AlunoPage.jsx";
-import CreateAula from "./components/Pages/CreateAula/CreateAula.jsx";
-import CreateFalta from "./components/Pages/CreateFalta/CreateFalta.jsx";
+import SalaAluno from "./Pages/SalaAluno/SalaAluno.jsx";
+import Home from "./Pages/Home/Home.jsx";
+import CreateAluno from "./Pages/CreateAluno/CreateAluno.jsx";
+import CreateSala from "./Pages/CreateSala/CreateSala.jsx";
+import NotFound from "./Pages/NotFound/NotFound.jsx";
+import Login from "./Pages/Login/Login.jsx";
+import AlunoPage from "./Pages/AlunoPage/AlunoPage.jsx";
+import CreateAula from "./Pages/CreateAula/CreateAula.jsx";
+import CreateFalta from "./Pages/CreateFalta/CreateFalta.jsx";
 
 
 export default function WebRoutes() {

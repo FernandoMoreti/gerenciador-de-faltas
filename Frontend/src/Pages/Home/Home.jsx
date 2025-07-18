@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "./style.jsx";
 import { useNavigate } from "react-router-dom";
-import ApiProfEscola from "../../../api/ApiProfEscola.jsx"
+import ApiProfEscola from "../../api/ApiProfEscola.jsx"
 import ButtonEscola from "./ButtonEscola/ButtonEscola.jsx";
 
 
