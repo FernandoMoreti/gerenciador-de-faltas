@@ -12,6 +12,14 @@ export const Container = styled.header`
         display: flex;
         align-items: center;
 
+        button {
+            background: transparent;
+            color: ${(props) => props.theme.color};
+            font-size: 24px;
+            border: none;
+            transition: 0.5s;
+        }
+
         h1 {
             font-size: 1rem;
         }
@@ -20,11 +28,10 @@ export const Container = styled.header`
             height:3rem;
         }
 
-        @media (prefers-reduced-motion: no-preference) {
-            img {
-            animation: App-logo-spin infinite 20s linear;
-            }
+        button:hover {
+            opacity: 0.5;
         }
+
     }
 
     div {
@@ -55,12 +62,4 @@ export const Container = styled.header`
 
     }
 
-    @keyframes App-logo-spin {
-        from {
-        transform: rotate(0deg);
-        }
-        to {
-        transform: rotate(360deg);
-        }
-    }
 `
