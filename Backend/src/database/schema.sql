@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS tb_professor(
     id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
     name VARCHAR NOT NULL,
     codigoProf INTEGER NOT NULL,
+    disciplina VARCHAR NOT NULL,
     password VARCHAR NOT NULL
 );
 
