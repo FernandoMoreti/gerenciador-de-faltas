@@ -43,11 +43,14 @@ router.delete("/Aluno/:id", AlunoController.delete)
 // Get Professor
 router.get("/professor", ProfController.index)
 
+// Get Professor Login
+router.post("/professor/login", ProfController.findByCod)
+
 // Post Professor
 router.post("/professor/create", ProfController.create)
 
-// Get Professor Login
-router.post("/professor/login", ProfController.findByCod)
+// Put Professor
+router.put("/professor/update/:id", ProfController.update)
 
 // Delete Professor
 router.delete("/professor/:id", ProfController.delete)

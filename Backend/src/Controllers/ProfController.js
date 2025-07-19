@@ -40,6 +40,15 @@ class ProfController {
         response.send(prof);
     }
 
+    async update(request, response) {
+        const { name, codigoProf, disciplina, password } = request.body;
+        const { id } = request.params
+
+        const prof = await ProfRepository.update(name, codigoProf, disciplina, password, id)
+
+        response.send(prof)
+    }
+
     async delete(request, response) {
         const { id } = request.params;
 
