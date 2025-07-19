@@ -24,7 +24,7 @@ class ProfController {
                 return response.status(401).json({ error: "Senha incorreta" });
             }
 
-            return response.json({ "authenticated": true, prof: {id: prof.id ,name: prof.name} });
+            return response.json({ "authenticated": true, prof: {id: prof.id ,name: prof.name, disciplina: prof.disciplina} });
         } catch (error) {
             console.error("Erro na autenticação:", error);
             return response.status(500).json({ error: "Erro interno no servidor" });
