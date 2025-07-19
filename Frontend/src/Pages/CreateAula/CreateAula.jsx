@@ -11,10 +11,9 @@ import Button from "../../components/component/Button";
 export default function CreateAula() {
 
     const { id } = useParams()
-
     const salas = ApiSalas(id)
-
     const navigate = useNavigate()
+    const prof = JSON.parse(localStorage.getItem("usuario"))
 
     const [ date, setDate ] = useState("")
     const [ disciplina, setDisciplina ] = useState("")
@@ -67,14 +66,22 @@ export default function CreateAula() {
                             }
                         />
                         <h3>Informe a disciplina:</h3>
-                        <Input
-                            type={"text"}
-                            placeholder={"Disciplina"}
+                        <Select
                             required
                             value={disciplina}
                             onChange={(event) => setDisciplina(event.target.value)
                             }
-                        />
+                        >
+                            <option value="" disabled hidden>
+                                Selecione uma Disciplina...
+                            </option>
+                            <option 
+                                key={prof.id} 
+                                value={prof.disciplina}
+                            >
+                                {prof.disciplina}
+                            </option>
+                        </Select>
                         <h3>Selecione a sala:</h3>
                         <Select
                             required
