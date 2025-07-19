@@ -6,7 +6,7 @@ export const Container = styled.button`
     width: 180px;
     border: 1px solid ${(props) => props.theme.color};
     border-radius: 10px;
-    background-color: transparent;
+    background-color: ${(props) => props.theme.salasBackgroundColor};
     color: #111;
     cursor: pointer;
     transition: 0.5s;

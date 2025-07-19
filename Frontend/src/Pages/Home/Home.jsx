@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "./style.jsx";
+import { Container, ContainerSchool } from "./style.jsx";
 import { useNavigate } from "react-router-dom";
 import ApiProfEscola from "../../api/ApiProfEscola.jsx"
 import ButtonEscola from "./ButtonEscola/ButtonEscola.jsx";
@@ -36,13 +36,15 @@ export default function Home() {
                 :<h1>Carregando...</h1>
             }
             <p>Escolha a escola que deseja contabilizar as faltas:</p>
-            <div>
-                {escolas
-                    ?escolas.map((escola) => (
-                        <ButtonEscola id={escola.id_escola} name={escola.name} img={escola.img}/>
-                    ))
-                    :<h1>Carregando...</h1>
-                }
+            <div id="center-div">
+                <ContainerSchool>
+                    {escolas
+                        ?escolas.map((escola) => (
+                            <ButtonEscola id={escola.id_escola} name={escola.name} img={escola.img}/>
+                        ))
+                        :<h1>Carregando...</h1>
+                    }
+                </ContainerSchool>
             </div>
         </Container>
     )
