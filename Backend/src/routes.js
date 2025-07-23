@@ -23,7 +23,6 @@ router.put("/salas/update/:id", SalasController.update)
 // Delete salas
 router.delete("/salas/:id", SalasController.delete)
 
-//###########################################################//
 
 // Get Alunos
 router.get("/Aluno", AlunoController.index)
@@ -38,7 +37,6 @@ router.put("/Aluno/update/:id", AlunoController.update)
 // Delete Aluno
 router.delete("/Aluno/:id", AlunoController.delete)
 
-//###########################################################//
 
 // Get Professor
 router.get("/professor", ProfController.index)
@@ -55,7 +53,6 @@ router.put("/professor/update/:id", ProfController.update)
 // Delete Professor
 router.delete("/professor/:id", ProfController.delete)
 
-//###########################################################//
 
 // Get Escola 
 router.get("/escola", EscolaController.index)
@@ -70,7 +67,6 @@ router.put("/Escola/update/:id", EscolaController.update)
 // Delete Escola
 router.delete("/escola/:id", EscolaController.delete)
 
-//###########################################################//
 
 // Get Aula
 router.get("/Aula", AulaController.index)
@@ -85,7 +81,6 @@ router.put("/Aula/update/:id", AulaController.update)
 // Delete Aula
 router.delete("/Aula/:id", AulaController.delete)
 
-//###########################################################//
 
 // Get ProfEscola
 router.get("/ProfEscola", ProfEscolaController.index)
@@ -97,7 +92,6 @@ router.post("/ProfEscola/create", ProfEscolaController.create)
 // Delete ProfEscola
 router.delete("/ProfEscola/:id", ProfEscolaController.delete)
 
-//###########################################################//
 
 // Get Falta
 router.get("/Falta", FaltaController.index)
