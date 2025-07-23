@@ -38,16 +38,16 @@ gerenciador-de-faltas/
 
 git clone https://github.com/FernandoMoreti/gerenciador-de-faltas
 
-📦 2. Instalar dependências
+### 📦 2. Instalar dependências
 
 Backend
 cd backend
-yaar add / npm install
+yarn add / npm install
 Frontend
 cd frontend
-yaar add / npm install
+yarn add / npm install
 
-▶️ 3. Executar o projeto
+### ▶️ 3. Executar o projeto
 Backend (porta padrão: 8000)
 cd backend
 npm run dev / yarn dev
@@ -56,14 +56,14 @@ Frontend (porta padrão: 3000)
 cd frontend
 npm start / yarn start
 
-🧪 Scripts úteis
+### 🧪 Scripts úteis
 Backend (package.json)
 "scripts": {
   "start": "node index.js",
   "dev": "nodemon index.js"
 }
 
-🧠 Funcionalidades Planejadas
+### 🧠 Funcionalidades Planejadas
 Cadastro e autenticação de usuários
 
 Registro de faltas por turma/aluno
@@ -78,5 +78,5 @@ Sistema de permissões (professor/coordenador/admin)
 
 Notificações automáticas para pais/responsáveis
 
-🧑‍💻 Autor
+### 🧑‍💻 Autor
 Desenvolvido por Fernando Moreti
