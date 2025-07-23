@@ -36,7 +36,6 @@ gerenciador-de-faltas/
 
 ### 🔧 1. Clonar o repositório
 
-```bash
 git clone https://github.com/FernandoMoreti/gerenciador-de-faltas
 
 📦 2. Instalar dependências
